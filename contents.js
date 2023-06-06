@@ -2,6 +2,15 @@ var url = document.location.href;
 var backjoon_url = "www.acmicpc.net";
 var programmers_url = "school.programmers.co.kr";
 
+function Copy(str) {
+  var tempElem = document.createElement("textarea");
+  tempElem.value = str;
+  document.body.appendChild(tempElem);
+  tempElem.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempElem);
+}
+
 function Programmers(url) {
   var el = document.querySelector("#tour2 > div > div");
   var explain = el.innerHTML;
@@ -16,12 +25,7 @@ function Programmers(url) {
     "~~~js",
     "~~~",
   ].join("\n\n");
-  var tempElem = document.createElement("textarea");
-  tempElem.value = result;
-  document.body.appendChild(tempElem);
-  tempElem.select();
-  document.execCommand("copy");
-  document.body.removeChild(tempElem);
+  Copy(result);
 }
 
 function Backjoon(url) {
@@ -48,12 +52,7 @@ function Backjoon(url) {
     "~~~js",
     "~~~",
   ].join("\n\n");
-  var tempElem = document.createElement("textarea");
-  tempElem.value = result;
-  document.body.appendChild(tempElem);
-  tempElem.select();
-  document.execCommand("copy");
-  document.body.removeChild(tempElem);
+  Copy(result);
 }
 
 if (url.match(backjoon_url)) Backjoon(url);
